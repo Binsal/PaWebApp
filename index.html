@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script
+src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>
+    <title>Document</title>
+    <div class="navbar"></div>
+</head>
+<body>
+   
+   
+
+    <div class="bar gap">
+        <button>
+            <span class="material-symbols-outlined">
+                arrow_left_alt
+            </span>
+        </button>
+        <span style="margin-left: 10px;">View Patient</span>
+    </div>
+
+ 
+    <hr>
+    
+    <div class="Patient-details ">
+
+        <div class="username">
+            <span style="margin-top: 5px;">S.Meena,F/23</span>
+            <span class="material-symbols-outlined" style="margin-top: 19px; margin-left: 250px;"> 
+                    account_circle
+            </span>
+        </div>
+        <p style="margin-top: 2px;">Patient ID: 87 20200727153457</p>
+    </div>
+
+    <div id="app">
+        <div class="card">
+          <h3>Goal reached</h3>
+          <div id="container"></div>
+        </div>
+      </div>
+  
+      <script src="src/index.js"></script>
+      <script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/1.0.0/dist/progressbar.js"></script>
+  
+      <script>
+        let bar = new ProgressBar.SemiCircle("#container", {
+          strokeWidth: 12,
+          color: "white",
+          trailColor: "rgba(255,255,255, 0.4)",
+          trailWidth: 12,
+          easing: "easeInOut",
+          duration: 1400,
+          svgStyle: null,
+          text: {
+            value: "",
+            alignToBottom: false,
+            className: "progressbar__label"
+          },
+  
+          // Set default step function for all animate calls
+          step: (state, bar) => {
+            bar.path.setAttribute("stroke", state.color);
+            var value = Math.round(bar.value() * 100);
+            if (value === 0) {
+              bar.setText("");
+            } else {
+              bar.setText(value);
+            }
+  
+            bar.text.style.color = state.color;
+          }
+        });
+        bar.animate(0.2); // Number from 0.0 to 1.0
+      </script>
+
+    <div class="details gap">
+        <div class="phone">
+            <span style="color: #7d7d7d;">Phone no.</span>
+            <span class="material-symbols-outlined" style="margin-left: 120px;">
+                call
+            </span>
+            <span >8022334455</span>
+        </div>
+        <div class="mail">
+            <span style="color: #7d7d7d;">Mail ID</span>
+            <span class="material-symbols-outlined" style="margin-left: 138px;">
+                mail
+            </span>
+            <span >meenarabinsachin2@gmail.com</span>
+        </div>
+        <div class="Affected">
+            <span style="color: #7d7d7d;">Affected side</span>
+            <span class="material-symbols-outlined" style="margin-left:103px; color: #df0100;">
+                circle
+            </span>
+            <span >Bilateral</span>
+        </div>
+        <div class="Condition">
+            <span style="color: #7d7d7d;">Condition</span>
+            <span class="material-symbols-outlined"  style="margin-left: 125px;">
+                brush
+            </span>
+            <span>Ortho</span>
+        </div>
+        <div class="Speciality">
+            <span style="color: #7d7d7d;">Speciality</span>
+            <span class="material-symbols-outlined" style="margin-left:125px;">
+                opacity
+            </span>
+            <span >Osteoarthritis</span>
+        </div>
+        
+        <hr style="margin-top: 20px;">
+        <div class="history" style="padding:10px" >
+            <span class="material-symbols-outlined">
+                summarize
+            </span>
+            <span style="font-weight: bold;  color:#012E57;">Medical History</span>
+            <span style="margin-left:80px">Hypertension,DM,Hypothyrodism</span>
+        </div>
+        <hr>
+    </div>
+
+<script type ="module" src="index.js"></script>
+</body>
+</html>
